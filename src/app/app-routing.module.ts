@@ -6,6 +6,7 @@ import { RecipeDetailsComponent } from './components/recipe-details/recipe-detai
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { EditableShoppingListComponent } from './components/editable-shopping-list/editable-shopping-list.component';
 import { EditableRecipeFormComponent } from './components/editable-recipe-form/editable-recipe-form.component';
+import { RecipesResolverService } from './services/recipes-resolver.service';
 
 const routes: Routes = [
   {
@@ -24,10 +25,12 @@ const routes: Routes = [
       {
         path: ':id',
         component: RecipeDetailsComponent,
+        resolve: [RecipesResolverService],
       },
       {
         path: ':id/edit',
         component: EditableRecipeFormComponent,
+        resolve: [RecipesResolverService],
       },
     ],
   },
